@@ -1,4 +1,4 @@
-# rml-clv_model_3dstar
+# Modelling of time- and wavelength-resolved Rossiter-McLaughlin (RML) and Center-to-Limb Variations (CLVs)
 Code and example files for the RML + CLV modelling described in [Chiavassa et al. (2026)](https://scixplorer.org/abs/2026arXiv261105740C/abstract). It uses 3D stellar models (provided separately) as input and it solves the transit geometry of a planet to produce a spectral sequence in the format (wavelength, time).
 
 ## Main features
@@ -15,10 +15,11 @@ This repository hosts the main `create_rml+clv_model.py` file that is responsibl
 
 Additional functions are kept separated for convenience in a `pipeline.py` file.
 
-Harcoded information in `create_rml+clv_model.py`:
+## Harcoded information in `create_rml+clv_model.py`:
 * The exact values of $\mu$ (43 angles in this case)
 * The way the (3D) stellar models are loaded and read in (this will arguably vary on a case-by-case fashion)
 * Resolution of the grid (200 pixel per stellar diameter, matching the precision tests explained in the paper
+* Vector of orbital phases (in the example manually defined, in reality it should be the actual phases of the observations)
 
 ## Outputs of the code
 
