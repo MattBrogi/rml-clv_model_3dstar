@@ -11,7 +11,7 @@ Code and example files for the RML + CLV modelling described in [Chiavassa et al
 
 This repository hosts the main `create_rml+clv_model.py` file that is responsible for the calculation of the model, and takes in input:
 * A file containing the system parameters (`parameters.py` in the example provided)
-* A file containing the $\mu$-resolved stellar spectrum (`3d_stellar_spec.sav' in the example provided)
+* A file containing the $\mu$-resolved stellar spectrum (`3d_stellar_spec.sav` in the example provided)
 
 Additional functions are kept separated for convenience in a `pipeline.py` file.
 
