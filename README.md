@@ -1,2 +1,28 @@
 # rml-clv_model_3dstar
-Code and example files for the RML + CLV modelling described in Chiavassa et al. (2026). It uses 3D stellar models (of an M1-dwarf in this case) as input and it solves the transit geometry of a planet to produce a spectral sequence in the format (wavelength, time).
+Code and example files for the RML + CLV modelling described in [Chiavassa et al. (2026)](https://scixplorer.org/abs/2026arXiv261105740C/abstract). It uses 3D stellar models (provided separately) as input and it solves the transit geometry of a planet to produce a spectral sequence in the format (wavelength, time).
+
+## Main features
+
+- The code can take in input *any* stellar model resolved in $\mu = 1/\cos(\theta)$ where $\theta$ is the angle between the LOS and the stellar normal. In this version - the whole point of the paper - the model comes from post-processing of the 3D Stagger grid, but in your case it could be substituted with any model, even a 1D scaled model (e.g. via SME or similar).
+- The code accounts for instrumental resolution (Gaussian profile) and stellar $v\sin\,i$, but not for the RV corrections related to the reference frame (BERV), systemic velocity, or stellar reflex motion around the center of mass. Note that gravitational redshift e stellar RV semi-amplitude are listed in `parameters.py` but so far unused.
+- With respect to [Chiavassa & Brogi (2019)](https://scixplorer.org/abs/2019A%26A...631A.100C/abstract), this version of the code takes into account explicitly the obliquity ($\lambda$) and the angle between the stellar spin and the plane of the sky ($i_\star$) thus allowing modelling of systems with non-zero obliquity.
+
+## Content of the repository
+
+This repository hosts the main `create_rml+clv_model.py` file that is responsible for the calculation of the model, and takes in input:
+* A file containing the system parameters (`parameters.py` in the example provided)
+* A file containing the $\mu$-resolved stellar spectrum (`3d_stellar_spec.sav' in the example provided)
+
+Additional functions are kept separated for convenience in a `pipeline.py` file.
+
+Harcoded information in `create_rml+clv_model.py`:
+* The exact values of $\mu$ (43 angles in this case)
+* The way the (3D) stellar models are loaded and read in (this will arguably vary on a case-by-case fashion)
+* Resolution of the grid (200 pixel per stellar diameter, matching the precision tests explained in the paper
+
+## Outputs of the code
+
+* Disk-integrated stellar spectrum => 1D array (`integ_flux.npy` in the example provided)
+* Disk-integrated continuum spectrum (used to normalize the previous spectrum) => 1D array (`` in the example provided)
+* Sequence of the stellar strip occluded by the planet => 3D array (time, y coordinate, x coordinate), `plnt_shadow_gj3470.npy` in the example provided
+* Final model of the combined RML + CLVs => 2D array (time, wavelength), `spec_series_gj3470.npy` in the example provided.
