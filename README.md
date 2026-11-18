@@ -15,13 +15,17 @@ This repository hosts the main `create_rml+clv_model.py` file that is responsibl
 
 Additional functions are kept separated for convenience in a `pipeline.py` file.
 
-## Harcoded information in `create_rml+clv_model.py`:
+## Usage
+
+Run `create_rml+clv_model.py`. If `doFullDisk` is set to `True` at line 16 it recomputes the full disk spectrum (slower - Just redo it if basic system parameters such as obliquity angles or radius ratios change). If `doPlShadow` is set to true at line 17 it recomputes the intersection between the planet and the disk of the star.
+
+### Harcoded information in `create_rml+clv_model.py`:
 * The exact values of $\mu$ (43 angles in this case)
 * The way the (3D) stellar models are loaded and read in (this will arguably vary on a case-by-case fashion)
 * Resolution of the grid (200 pixel per stellar diameter, matching the precision tests explained in the paper
 * Vector of orbital phases (in the example manually defined, in reality it should be the actual phases of the observations)
 
-## Outputs of the code
+### Outputs of the code
 
 * Disk-integrated stellar spectrum => 1D array (`integ_flux.npy` in the example provided)
 * Disk-integrated continuum spectrum (used to normalize the previous spectrum) => 1D array (`cont_flux.npy` in the example provided)
