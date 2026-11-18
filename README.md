@@ -23,6 +23,6 @@ Harcoded information in `create_rml+clv_model.py`:
 ## Outputs of the code
 
 * Disk-integrated stellar spectrum => 1D array (`integ_flux.npy` in the example provided)
-* Disk-integrated continuum spectrum (used to normalize the previous spectrum) => 1D array (`` in the example provided)
+* Disk-integrated continuum spectrum (used to normalize the previous spectrum) => 1D array (`cont_flux.npy` in the example provided)
 * Sequence of the stellar strip occluded by the planet => 3D array (time, y coordinate, x coordinate), `plnt_shadow_gj3470.npy` in the example provided
 * Final model of the combined RML + CLVs => 2D array (time, wavelength), `spec_series_gj3470.npy` in the example provided.
