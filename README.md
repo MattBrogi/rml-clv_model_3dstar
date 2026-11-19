@@ -3,7 +3,7 @@ Code and example files for the RML + CLV modelling described in [Chiavassa et al
 
 ## Main features
 
-- The code can take in input *any* stellar model resolved in $\mu = 1/\cos(\theta)$ where $\theta$ is the angle between the LOS and the stellar normal. In this version - the whole point of the paper - the model comes from post-processing 3D hydrodynamical simulations of stellar convection with the Stagger grid [Stagger grid](https://scixplorer.org/abs/2013A%26A...557A..26M/abstract, https://scixplorer.org/abs/2024A%26A...688A.212R/abstract), but it can be substituted by any spatially-resolved model.
+- The code can take in input *any* stellar model resolved in $\mu = 1/\cos(\theta)$ where $\theta$ is the angle between the LOS and the stellar normal. In this version - the whole point of the paper - the model comes from post-processing 3D hydrodynamical simulations of stellar convection with the [Stagger grid](https://scixplorer.org/abs/2024A%26A...688A.212R/abstract), but it can be substituted by any spatially-resolved model.
 - The code accounts for instrumental resolution (Gaussian profile) and stellar $v\sin\,i$, but not for the RV corrections related to the reference frame (BERV), systemic velocity, or stellar reflex motion around the center of mass. Note that gravitational redshift e stellar RV semi-amplitude are listed in `parameters.py` but so far unused.
 - With respect to [Chiavassa & Brogi (2019)](https://scixplorer.org/abs/2019A%26A...631A.100C/abstract), this version takes into account explicitly the obliquity ($\lambda$) and the angle between the stellar spin and the plane of the sky ($i_\star$) thus allowing modelling of systems with non-zero obliquity.
 
